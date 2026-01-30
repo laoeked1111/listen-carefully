@@ -21,15 +21,15 @@ N = 8;
 Nx = 512 - 40;
 Ny = 256 - 40;
 
-xLength = 8 * wavelength; % [m]
+xLength = 12 * wavelength; % [m]
 yLength = (N * w + (N+1) * wall_thickness) * 1.2; % [m]
 
 dx = xLength / Nx; % [m]
 dy = yLength / Ny; % [m]
 
-Nperiods = 8;
+Nperiods = 16;
 T = Nperiods / f0;
-Nt = 512;
+Nt = 1024;
 
 kgrid = kWaveGrid(Nx, dx, Ny, dy);
 
@@ -125,7 +125,7 @@ axis square
 colorbar
 
 
-cfl = 0.2;
+cfl = 0.1;
 kgrid.makeTime(medium.sound_speed, cfl, T);
 
 
